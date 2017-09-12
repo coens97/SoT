@@ -12,8 +12,8 @@ public interface CodSoap {
     StandardResult Register(String name, String password);
 
     @WebMethod
-    Boolean RollDice(String hash);
+    Boolean RollDice(String name, String password);
 
     @WebMethod
-    ScoreBoardResult GetScoreBoard(String hash);
+    ScoreBoardResult GetScoreBoard();
 }

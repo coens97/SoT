@@ -12,12 +12,12 @@ public class MyCodSoap implements CodSoap {
     }
 
     @Override
-    public Boolean RollDice(String hash) {
+    public Boolean RollDice(String name, String password) {
         return null;
     }
 
     @Override
-    public ScoreBoardResult GetScoreBoard(String hash) {
+    public ScoreBoardResult GetScoreBoard() {
         return null;
     }
 }
