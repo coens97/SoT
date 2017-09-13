@@ -7,6 +7,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="CodService" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="JAX-WS-Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" />
+        </element>
+        <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/sun-jaxws.xml" />
+        <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       </element>
     </root>
   </artifact>

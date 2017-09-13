@@ -1,8 +1,10 @@
 package soap.cod;
 
+import javax.jws.WebService;
 import java.util.LinkedList;
 import java.util.Optional;
 
+@WebService(endpointInterface = "soap.cod.CodSoap")
 public class MyCodSoap implements CodSoap {
     private LinkedList<UserEntity> userEntities
             = new LinkedList<UserEntity>();
