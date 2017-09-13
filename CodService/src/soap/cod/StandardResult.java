@@ -21,7 +21,13 @@ public class StandardResult {
         this.message = message;
     }
 
+    public StandardResult(boolean succes, String message) {
+        this.succes = succes;
+        this.message = message;
+    }
+
     public StandardResult() {
+
 
     }
 }
