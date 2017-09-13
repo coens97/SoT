@@ -70,7 +70,11 @@ public class MyCodSoap implements CodSoap {
     }
 
     @Override
-    public ScoreBoardResult GetScoreBoard() {
-        return null;
+    public ScoreBoardResult[] GetScoreBoard()
+    {
+        return (ScoreBoardResult[]) userEntities.stream()
+                .map(x ->
+                        new ScoreBoardResult(x.getUsername(), x.getWins(), x.getLoss()))
+                .toArray();
     }
 }

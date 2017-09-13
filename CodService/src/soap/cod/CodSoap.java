@@ -15,5 +15,5 @@ public interface CodSoap {
     Boolean RollDice(String name, String password);
 
     @WebMethod
-    ScoreBoardResult GetScoreBoard();
+    ScoreBoardResult[] GetScoreBoard();
 }

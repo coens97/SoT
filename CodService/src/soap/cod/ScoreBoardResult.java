@@ -32,4 +32,10 @@ public class ScoreBoardResult {
     public ScoreBoardResult(){
 
     }
+
+    public ScoreBoardResult(String name, int wins, int loss) {
+        this.name = name;
+        this.wins = wins;
+        this.loss = loss;
+    }
 }
