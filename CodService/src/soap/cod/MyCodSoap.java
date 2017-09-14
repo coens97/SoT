@@ -52,7 +52,7 @@ public class MyCodSoap implements CodSoap {
     public Boolean RollDice(String name, String password) {
         Optional<UserEntity> maybeuser = userEntities.stream()
                 .filter(x ->
-                    x.getUsername() == name && x.getPassword() == password)
+                    x.getUsername().equals(name) && x.getPassword().equals(password))
                 .findFirst();
         if (maybeuser.isPresent())
         {
