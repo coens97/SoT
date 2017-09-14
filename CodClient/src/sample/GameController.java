@@ -1,11 +1,18 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import soap.cod.CodSoap;
 import soap.cod.MyCodSoapService;
+import soap.cod.ScoreBoardResult;
+
+import java.util.List;
+import java.util.Observable;
 
 public class GameController {
     private String username;
@@ -13,6 +20,7 @@ public class GameController {
 
     @FXML private Label labelName;
     @FXML private Label labelRollResult;
+    @FXML private TableView scoreTable;
 
     public void initialize(String user, String pass){
         username = user;
@@ -35,6 +43,9 @@ public class GameController {
     }
 
     private void showScoreBoard() {
-
+        CodSoap server = new MyCodSoapService().getMyCodSoapPort();
+        List<ScoreBoardResult> scores = server.getScoreBoard();
+        ObservableList<ScoreBoardResult> tableDate = FXCollections.observableArrayList(scores);
+        scoreTable.setItems(tableDate);
     }
 }

@@ -27,7 +27,7 @@
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="398.0" layoutY="37.0" mnemonicParsing="false" onAction="#showScoreBoardClicked" text="Show scoreboard" />
          </children>
       </Pane>
-      <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+      <TableView fx:id="scoreTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
         <columns>
           <TableColumn editable="false" prefWidth="129.0" sortable="false" text="Username" />
           <TableColumn editable="false" prefWidth="127.0" sortable="false" text="Wins" />
