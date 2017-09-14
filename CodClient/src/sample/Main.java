@@ -27,13 +27,17 @@ public class Main extends Application {
     }
 
     public void loginSucceeded(String name, String password) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("game.fxml"));
+            root = fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
         stage.setScene(new Scene(root, 600, 400));
+        // Pass information to the gamecontroller
+        GameController myController = (GameController) fxmlLoader.getController();
+        myController.initialize(name, password);
     }
 
 
