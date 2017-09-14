@@ -12,8 +12,8 @@ public class MyCodSoap implements CodSoap {
     private boolean ValidUser(String name, String password)
     {
         return userEntities.stream().anyMatch(x ->
-                x.getUsername() == name &&
-                x.getPassword() == password);
+                x.getUsername().equals(name) &&
+                x.getPassword().equals(password));
     }
 
 
@@ -34,7 +34,7 @@ public class MyCodSoap implements CodSoap {
     public StandardResult Register(String name, String password)
     {
         boolean userExist = userEntities.stream().anyMatch(x ->
-            x.getUsername() == name);
+            x.getUsername().equals(name));
         if (userExist)
         {
             return new StandardResult(false, "Username already exists");
