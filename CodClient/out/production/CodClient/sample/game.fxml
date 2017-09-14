@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="sample.GameController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -20,11 +20,11 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button layoutX="96.0" layoutY="37.0" mnemonicParsing="false" text="ROLL DICE" />
+            <Button layoutX="96.0" layoutY="37.0" mnemonicParsing="false" onAction="#rollDiceClicked" text="ROLL DICE" />
             <Label layoutX="96.0" layoutY="14.0" text="Welcome " />
             <Label fx:id="labelName" layoutX="164.0" layoutY="14.0" />
             <Label fx:id="labelRollResult" layoutX="96.0" layoutY="77.0" />
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="398.0" layoutY="37.0" mnemonicParsing="false" text="Show scoreboard" />
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="398.0" layoutY="37.0" mnemonicParsing="false" onAction="#showScoreBoardClicked" text="Show scoreboard" />
          </children>
       </Pane>
       <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
