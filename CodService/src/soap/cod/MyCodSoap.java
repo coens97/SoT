@@ -3,6 +3,7 @@ package soap.cod;
 import javax.jws.WebService;
 import java.util.LinkedList;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @WebService(endpointInterface = "soap.cod.CodSoap")
 public class MyCodSoap implements CodSoap {
@@ -74,9 +75,9 @@ public class MyCodSoap implements CodSoap {
     @Override
     public ScoreBoardResult[] GetScoreBoard()
     {
-        return (ScoreBoardResult[]) userEntities.stream()
+        return userEntities.stream()
                 .map(x ->
                         new ScoreBoardResult(x.getUsername(), x.getWins(), x.getLoss()))
-                .toArray();
+                .toArray(ScoreBoardResult[]::new);
     }
 }
