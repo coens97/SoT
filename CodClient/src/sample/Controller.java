@@ -10,6 +10,7 @@ import soap.cod.MyCodSoapService;
 import soap.cod.StandardResult;
 
 public class Controller {
+    private Main main;
     /* Login */
     @FXML private TextField nameField;
     @FXML private PasswordField passwordField;
@@ -24,12 +25,15 @@ public class Controller {
     @FXML
     private void handleLoginClick(ActionEvent event) {
         loginWarningText.setText("");
+        String name = nameField.getText();
+        String pass = passwordField.getText();
         CodSoap server = new MyCodSoapService().getMyCodSoapPort();
-        StandardResult result = server.login(nameField.getText(), passwordField.getText());
+        StandardResult result = server.login(name, pass);
 
         if (result.isSucces())
         {
             System.out.println("Login success");
+            main.loginSucceeded(name, pass);
         }
         else
         {
@@ -59,5 +63,9 @@ public class Controller {
         {
             registerWarning.setText(result.getMessage());
         }
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
     }
 }
