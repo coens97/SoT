@@ -1,11 +1,14 @@
 package sample;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import soap.cod.CodSoap;
 import soap.cod.MyCodSoapService;
@@ -21,11 +24,19 @@ public class GameController {
     @FXML private Label labelName;
     @FXML private Label labelRollResult;
     @FXML private TableView scoreTable;
+    @FXML private TableColumn<ScoreBoardResult, String> userColumn;
+    @FXML private TableColumn<ScoreBoardResult, String>  winColumn;
+    @FXML private TableColumn<ScoreBoardResult, String>  lossColumn;
 
     public void initialize(String user, String pass){
+        // Set values
         username = user;
         password = pass;
         labelName.setText(user);
+        // Configure table
+        userColumn.setCellValueFactory(x -> new SimpleStringProperty(x.getValue().getName()));
+        winColumn.setCellValueFactory(x -> new SimpleStringProperty(String.valueOf(x.getValue().getWins())));
+        lossColumn.setCellValueFactory(x -> new SimpleStringProperty(String.valueOf(x.getValue().getLoss())));
         showScoreBoard();
     }
 

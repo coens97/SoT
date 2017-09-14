@@ -29,9 +29,9 @@
       </Pane>
       <TableView fx:id="scoreTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
         <columns>
-          <TableColumn editable="false" prefWidth="129.0" sortable="false" text="Username" />
-          <TableColumn editable="false" prefWidth="127.0" sortable="false" text="Wins" />
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" text="Loss" />
+          <TableColumn fx:id="userColumn" editable="false" prefWidth="129.0" sortable="false" text="Username" />
+          <TableColumn fx:id="winColumn" editable="false" prefWidth="127.0" sortable="false" text="Wins" />
+            <TableColumn fx:id="lossColumn" editable="false" prefWidth="75.0" sortable="false" text="Loss" />
         </columns>
       </TableView>
    </children>
