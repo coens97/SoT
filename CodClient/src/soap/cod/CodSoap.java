@@ -32,12 +32,12 @@ public interface CodSoap {
      * @return
      *     returns soap.cod.StandardResult
      */
-    @WebMethod(operationName = "Register")
+    @WebMethod(operationName = "Login")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Register", targetNamespace = "http://cod.soap/", className = "soap.cod.Register")
-    @ResponseWrapper(localName = "RegisterResponse", targetNamespace = "http://cod.soap/", className = "soap.cod.RegisterResponse")
-    @Action(input = "http://cod.soap/CodSoap/RegisterRequest", output = "http://cod.soap/CodSoap/RegisterResponse")
-    public StandardResult register(
+    @RequestWrapper(localName = "Login", targetNamespace = "http://cod.soap/", className = "soap.cod.Login")
+    @ResponseWrapper(localName = "LoginResponse", targetNamespace = "http://cod.soap/", className = "soap.cod.LoginResponse")
+    @Action(input = "http://cod.soap/CodSoap/LoginRequest", output = "http://cod.soap/CodSoap/LoginResponse")
+    public StandardResult login(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
@@ -50,12 +50,12 @@ public interface CodSoap {
      * @return
      *     returns soap.cod.StandardResult
      */
-    @WebMethod(operationName = "Login")
+    @WebMethod(operationName = "Register")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Login", targetNamespace = "http://cod.soap/", className = "soap.cod.Login")
-    @ResponseWrapper(localName = "LoginResponse", targetNamespace = "http://cod.soap/", className = "soap.cod.LoginResponse")
-    @Action(input = "http://cod.soap/CodSoap/LoginRequest", output = "http://cod.soap/CodSoap/LoginResponse")
-    public StandardResult login(
+    @RequestWrapper(localName = "Register", targetNamespace = "http://cod.soap/", className = "soap.cod.Register")
+    @ResponseWrapper(localName = "RegisterResponse", targetNamespace = "http://cod.soap/", className = "soap.cod.RegisterResponse")
+    @Action(input = "http://cod.soap/CodSoap/RegisterRequest", output = "http://cod.soap/CodSoap/RegisterResponse")
+    public StandardResult register(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
