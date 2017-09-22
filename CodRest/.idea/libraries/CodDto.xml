@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CodDto">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/CodDto/CodDto.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

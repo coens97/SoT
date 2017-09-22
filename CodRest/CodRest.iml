@@ -26,5 +26,6 @@
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-bundle:1.18.3" level="project" />
     <orderEntry type="library" name="Maven: javax.ws.rs:jsr311-api:1.1.1" level="project" />
     <orderEntry type="library" name="com.google.guava:guava:14.0.1" level="project" />
+    <orderEntry type="library" name="CodDto" level="project" />
   </component>
 </module>
