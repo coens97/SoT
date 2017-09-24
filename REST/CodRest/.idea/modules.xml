@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../CodClient/CodClient.iml" filepath="$PROJECT_DIR$/../CodClient/CodClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/CodRest.iml" filepath="$PROJECT_DIR$/CodRest.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Dto/Dto.iml" filepath="$PROJECT_DIR$/../Dto/Dto.iml" />
     </modules>
