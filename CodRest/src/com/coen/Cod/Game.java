@@ -13,7 +13,7 @@ public class Game {
     @PUT
     @Path("roll")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public StandardResult getMessage(@QueryParam("name") String name, @QueryParam("password") String password)
+    public StandardResult getMessage(@FormParam("name") String name, @FormParam("password") String password)
     {
         Optional<UserEntity> maybeuser = DataStore.getInstance().MaybeUser(name, password);
         if (maybeuser.isPresent())
