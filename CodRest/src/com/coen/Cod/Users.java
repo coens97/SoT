@@ -1,5 +1,8 @@
 package com.coen.Cod;
 
+import com.coen.Data.DataStore;
+import com.coen.Dto.StandardResult;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -7,25 +10,31 @@ import javax.ws.rs.core.MediaType;
 public class Users {
     @GET
     @Path("{name}/{password}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getMessage(@PathParam("name") String name, @PathParam("password") String password)
+    @Produces(MediaType.APPLICATION_XML)
+    public StandardResult getMessage(@PathParam("name") String name, @PathParam("password") String password)
     {
-        return "Hello " + name + " with password " + password;
+        if (DataStore.getInstance().ValidUser(name, password))
+        {
+            return new StandardResult(true, "");
+        }
+        else
+        {
+            return new StandardResult(false, "Can't find username or password");
+        }
     }
 
     @PUT
     @Path("{name}/{password}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getMessagePut(@PathParam("name") String name, @PathParam("password") String password)
+    @Produces(MediaType.APPLICATION_XML)
+    public StandardResult getMessagePut(@PathParam("name") String name, @PathParam("password") String password)
     {
-        return "Hello " + name + " with password " + password;
-    }
-
-    @DELETE
-    @Path("{name}/{password}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getMessageDelete(@PathParam("name") String name, @PathParam("password") String password)
-    {
-        return "Hello " + name + " with password " + password;
+        if (DataStore.getInstance().ValidUser(name, password))
+        {
+            return new StandardResult(true, "");
+        }
+        else
+        {
+            return new StandardResult(false, "Username already exists");
+        }
     }
 }

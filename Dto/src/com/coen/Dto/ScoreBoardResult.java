@@ -1,5 +1,8 @@
 package com.coen.Dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ScoreBoardResult {
     private String name;
     private int wins;

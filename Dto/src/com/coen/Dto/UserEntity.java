@@ -1,5 +1,8 @@
 package com.coen.Dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class UserEntity {
     private String username;
     private String password;
