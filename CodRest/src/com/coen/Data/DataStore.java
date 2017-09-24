@@ -3,6 +3,7 @@ package com.coen.Data;
 import com.coen.Dto.UserEntity;
 
 import java.util.LinkedList;
+import java.util.Optional;
 
 public class DataStore {
     private static DataStore ourInstance = new DataStore();
@@ -23,6 +24,14 @@ public class DataStore {
 
     public void setUserEntities(LinkedList<UserEntity> userEntities) {
         this.userEntities = userEntities;
+    }
+
+    public Optional<UserEntity> MaybeUser(String name, String password)
+    {
+        return userEntities.stream()
+                .filter(x ->
+                        x.getUsername().equals(name) && x.getPassword().equals(password))
+                .findFirst();
     }
 
     public boolean ValidUser(String name, String password)
