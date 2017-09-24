@@ -41,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/soap/cod/ScoreBoardResult.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -50,8 +50,8 @@
       <file leaf-file-name="MyCodSoap.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/soap/cod/MyCodSoap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="71" column="21" lean-forward="true" selection-start-line="56" selection-start-column="8" selection-end-line="71" selection-end-column="21" />
+            <state relative-caret-position="296">
+              <caret line="46" column="35" lean-forward="true" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -372,16 +372,15 @@
       <workItem from="1506064112558" duration="77000" />
       <workItem from="1506064227155" duration="7000" />
       <workItem from="1506069927406" duration="1115000" />
-      <workItem from="1506253958766" duration="4660000" />
+      <workItem from="1506253958766" duration="4700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29613000" />
+    <option name="totallyTimeSpent" value="29653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="840" height="947" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -532,15 +531,15 @@
     <entry file="file://$PROJECT_DIR$/src/soap/cod/ScoreBoardResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/soap/cod/MyCodSoap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="71" column="21" lean-forward="true" selection-start-line="56" selection-start-column="8" selection-end-line="71" selection-end-column="21" />
+        <state relative-caret-position="296">
+          <caret line="46" column="35" lean-forward="true" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
           <folding />
         </state>
       </provider>
