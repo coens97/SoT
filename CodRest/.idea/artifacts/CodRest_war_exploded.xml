@@ -13,6 +13,7 @@
           <element id="library" level="project" name="Maven: com.sun.jersey:jersey-bundle:1.18.3" />
           <element id="library" level="project" name="Maven: javax.ws.rs:jsr311-api:1.1.1" />
           <element id="library" level="project" name="com.google.guava:guava:14.0.1" />
+          <element id="library" level="project" name="com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.1" />
         </element>
       </element>
     </root>

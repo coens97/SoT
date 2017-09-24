@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 public class Users {
     @GET
     @Path("{name}/{password}")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_JSON)
     public StandardResult getMessage(@PathParam("name") String name, @PathParam("password") String password)
     {
         if (DataStore.getInstance().ValidUser(name, password))
