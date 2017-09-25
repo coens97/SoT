@@ -8,9 +8,10 @@ import com.coen.Dto.UserEntity;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Optional;
-/*
+
 @Path("/scoreboard")
 public class Scoreboard {
+    /*
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public ScoreBoardResult[] getMessage()
@@ -21,7 +22,7 @@ public class Scoreboard {
                         new ScoreBoardResult(x.getUsername(), x.getWins(), x.getLoss()))
                 .toArray(ScoreBoardResult[]::new);
     }
-
+*/
     @DELETE
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public StandardResult getMessageDelete(@FormParam("name") String name, @FormParam("password") String password)
@@ -38,4 +39,3 @@ public class Scoreboard {
     }
 
 }
-*/
