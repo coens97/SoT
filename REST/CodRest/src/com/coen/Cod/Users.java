@@ -5,7 +5,7 @@ import com.coen.Dto.StandardResult;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-/*
+
 @Path("/users")
 public class Users {
     @GET
@@ -38,4 +38,3 @@ public class Users {
         }
     }
 }
-*/

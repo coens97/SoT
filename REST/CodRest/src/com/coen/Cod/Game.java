@@ -7,7 +7,7 @@ import com.coen.Dto.UserEntity;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Optional;
-/*
+
 @Path("/game")
 public class Game {
     @PUT
@@ -33,4 +33,4 @@ public class Game {
         }
         return new StandardResult(false, "Authentication failed");
     }
-}*/
+}
