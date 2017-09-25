@@ -8,7 +8,7 @@ import com.coen.Dto.UserEntity;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Optional;
-
+/*
 @Path("/scoreboard")
 public class Scoreboard {
     @GET
@@ -24,7 +24,7 @@ public class Scoreboard {
 
     @DELETE
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public StandardResult getMessage(@FormParam("name") String name, @FormParam("password") String password)
+    public StandardResult getMessageDelete(@FormParam("name") String name, @FormParam("password") String password)
     {
         Optional<UserEntity> maybeuser = DataStore.getInstance().MaybeUser(name, password);
         if (maybeuser.isPresent())
@@ -38,3 +38,4 @@ public class Scoreboard {
     }
 
 }
+*/
