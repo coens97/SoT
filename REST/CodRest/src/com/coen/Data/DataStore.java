@@ -1,5 +1,7 @@
 package com.coen.Data;
 
+import com.coen.Dto.ScoreBoardResult;
+import com.coen.Dto.ScoreBoardResults;
 import com.coen.Dto.UserEntity;
 
 import java.util.LinkedList;
@@ -55,5 +57,15 @@ public class DataStore {
             userEntities.add(newUser);
             return true;
         }
+    }
+
+    public ScoreBoardResults GetScoreboard()
+    {
+        ScoreBoardResult[] results = DataStore.getInstance()
+                .getUserEntities().stream()
+                .map(x ->
+                    new ScoreBoardResult(x.getUsername(), x.getWins(), x.getLoss()))
+                .toArray(ScoreBoardResult[]::new);
+        return new ScoreBoardResults(results);
     }
 }

@@ -9,6 +9,7 @@ import com.coen.Dto.UserEntity;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @Path("/scoreboard")
 public class Scoreboard {
@@ -17,13 +18,7 @@ public class Scoreboard {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public ScoreBoardResults getMessage()
     {
-        /*ScoreBoardResult[] results = DataStore.getInstance()
-                .getUserEntities().stream()
-                .map(x ->
-                        new ScoreBoardResult(x.getUsername(), x.getWins(), x.getLoss()))
-                .toArray(ScoreBoardResult[]::new);
-        return new ScoreBoardResults(results);*/
-        return new ScoreBoardResults();
+        return DataStore.getInstance().GetScoreboard();
     }
 
     @DELETE
