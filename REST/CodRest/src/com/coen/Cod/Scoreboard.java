@@ -2,6 +2,7 @@ package com.coen.Cod;
 
 import com.coen.Data.DataStore;
 import com.coen.Dto.ScoreBoardResult;
+import com.coen.Dto.ScoreBoardResults;
 import com.coen.Dto.StandardResult;
 import com.coen.Dto.UserEntity;
 
@@ -11,18 +12,20 @@ import java.util.Optional;
 
 @Path("/scoreboard")
 public class Scoreboard {
-    /*
+
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public ScoreBoardResult[] getMessage()
+    public ScoreBoardResults getMessage()
     {
-        return DataStore.getInstance()
+        /*ScoreBoardResult[] results = DataStore.getInstance()
                 .getUserEntities().stream()
                 .map(x ->
                         new ScoreBoardResult(x.getUsername(), x.getWins(), x.getLoss()))
                 .toArray(ScoreBoardResult[]::new);
+        return new ScoreBoardResults(results);*/
+        return new ScoreBoardResults();
     }
-*/
+
     @DELETE
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public StandardResult getMessageDelete(@FormParam("name") String name, @FormParam("password") String password)
