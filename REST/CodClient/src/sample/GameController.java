@@ -83,4 +83,24 @@ public class GameController {
         ObservableList<ScoreBoardResult> tableDate = FXCollections.observableArrayList(result.getResults());
         scoreTable.setItems(tableDate);
     }
+
+    @FXML
+    private void resetClicked(ActionEvent event)
+    {
+        WebTarget target = TargetSingle.getInstance().getTarget()
+                .path("scoreboard").path(username).path(password);
+        Invocation.Builder requestBuilder = target.request().accept(MediaType.APPLICATION_JSON);
+        Response response = requestBuilder.delete();
+        StandardResult result = response.readEntity(StandardResult.class);
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            labelRollResult.setText(result.getMessage());
+            if (result.isSucces()){
+                showScoreBoard();
+            }
+        }
+        else
+        {
+            labelRollResult.setText("Couldn't connect to server");
+        }
+    }
 }

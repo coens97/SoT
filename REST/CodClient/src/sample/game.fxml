@@ -25,6 +25,7 @@
             <Label fx:id="labelName" layoutX="164.0" layoutY="14.0" />
             <Label fx:id="labelRollResult" layoutX="96.0" layoutY="77.0" />
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="398.0" layoutY="37.0" mnemonicParsing="false" onAction="#showScoreBoardClicked" text="Show scoreboard" />
+            <Button layoutX="195.0" layoutY="37.0" mnemonicParsing="false" onAction="#resetClicked" prefHeight="27.0" prefWidth="85.0" text="RESET" />
          </children>
       </Pane>
       <TableView fx:id="scoreTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">

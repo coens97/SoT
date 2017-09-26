@@ -22,8 +22,9 @@ public class Scoreboard {
     }
 
     @DELETE
+    @Path("{name}/{password}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public StandardResult getMessageDelete(@FormParam("name") String name, @FormParam("password") String password)
+    public StandardResult getMessageDelete(@PathParam("name") String name, @PathParam("password") String password)
     {
         Optional<UserEntity> maybeuser = DataStore.getInstance().MaybeUser(name, password);
         if (maybeuser.isPresent())
@@ -31,7 +32,7 @@ public class Scoreboard {
             UserEntity user = maybeuser.get();
             user.setLoss(0);
             user.setWins(0);
-            return new StandardResult(true, "");
+            return new StandardResult(true, "Successful reset score");
         }
         return new StandardResult(false, "Authentication failed");
     }
