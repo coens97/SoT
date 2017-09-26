@@ -60,20 +60,29 @@ public class Controller {
             registerWarning.setText("Passwords are not the same");
             return;
         }
-        /*CodSoap server = new MyCodSoapService().getMyCodSoapPort();
-        StandardResult result = server.register(registerName.getText(), registerPassword.getText());
-
-        if (result.isSucces())
+        WebTarget target = TargetSingle.getInstance().getTarget()
+                .path("users").path(registerName.getText()).path(registerPassword.getText());
+        Invocation.Builder requestBuilder = target.request().accept(MediaType.APPLICATION_JSON);
+        Response response = requestBuilder.post(null);
+        StandardResult result = response.readEntity(StandardResult.class);
+        if (response.getStatus() == Response.Status.OK.getStatusCode())
         {
-            registerWarning.setText("Succesfully registered");
-            registerName.setText("");
-            registerPassword.setText("");
-            registerPasswordAgain.setText("");
+            if (result.isSucces())
+            {
+                registerWarning.setText("Succesfully registered");
+                registerName.setText("");
+                registerPassword.setText("");
+                registerPasswordAgain.setText("");
+            }
+            else
+            {
+                registerWarning.setText(result.getMessage());
+            }
         }
         else
         {
-            registerWarning.setText(result.getMessage());
-        }*/
+            registerWarning.setText("Couldn't make request to server");
+        }
     }
 
     public void setMain(Main main) {

@@ -23,12 +23,12 @@ public class Users {
         }
     }
 
-    @PUT
+    @POST
     @Path("{name}/{password}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public StandardResult getMessagePut(@PathParam("name") String name, @PathParam("password") String password)
     {
-        if (DataStore.getInstance().ValidUser(name, password))
+        if (DataStore.getInstance().Register(name, password))
         {
             return new StandardResult(true, "");
         }
