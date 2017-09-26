@@ -1,6 +1,8 @@
 package sample;
 
 import com.coen.Dto.ScoreBoardResult;
+import com.coen.Dto.ScoreBoardResults;
+import com.coen.Dto.StandardResult;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +14,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Observable;
 
@@ -52,9 +58,12 @@ public class GameController {
     }
 
     private void showScoreBoard() {
-        /*CodSoap server = new MyCodSoapService().getMyCodSoapPort();
-        List<ScoreBoardResult> scores = server.getScoreBoard();
-        ObservableList<ScoreBoardResult> tableDate = FXCollections.observableArrayList(scores);
-        scoreTable.setItems(tableDate);*/
+        WebTarget target = TargetSingle.getInstance().getTarget()
+                .path("scoreboard");
+        Invocation.Builder requestBuilder = target.request().accept(MediaType.APPLICATION_JSON);
+        Response response = requestBuilder.get();
+        ScoreBoardResults result = response.readEntity(ScoreBoardResults.class);
+        ObservableList<ScoreBoardResult> tableDate = FXCollections.observableArrayList(result.getResults());
+        scoreTable.setItems(tableDate);
     }
 }
