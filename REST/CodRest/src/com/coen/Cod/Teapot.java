@@ -16,6 +16,6 @@ public class Teapot {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public Response getMessage() {
-        return Response.status(418).entity(" I'm a teapot. \nThe requested entity body is short and stout. Tip me over and pour me out.").build();
+        return Response.status(418).entity("I'm a teapot. \nThe requested entity body is short and stout. Tip me over and pour me out.").build();
     }
 }
