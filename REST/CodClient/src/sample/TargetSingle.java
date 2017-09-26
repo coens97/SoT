@@ -20,7 +20,7 @@ public class TargetSingle {
     }
 
     private TargetSingle() {
-        URI baseURI = UriBuilder.fromUri("http://localhost:8080/").build();
+        URI baseURI = UriBuilder.fromUri("http://localhost:9000/").build();
         Client client = ClientBuilder.newClient();
         target = client.target(baseURI);
     }
