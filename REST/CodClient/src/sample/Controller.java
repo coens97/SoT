@@ -1,10 +1,16 @@
 package sample;
 
+import com.coen.Dto.StandardResult;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 public class Controller {
     private Main main;
@@ -24,18 +30,26 @@ public class Controller {
         loginWarningText.setText("");
         String name = nameField.getText();
         String pass = passwordField.getText();
-        /*CodSoap server = new MyCodSoapService().getMyCodSoapPort();
-        StandardResult result = server.login(name, pass);
-
-        if (result.isSucces())
+        WebTarget target = TargetSingle.getInstance().getTarget()
+                .path("users").path(name).path(pass);
+        Invocation.Builder requestBuilder = target.request().accept(MediaType.APPLICATION_JSON);
+        Response response = requestBuilder.get();
+        StandardResult result = response.readEntity(StandardResult.class);
+        if (response.getStatus() == Response.Status.OK.getStatusCode())
         {
-            System.out.println("Login success");
-            main.loginSucceeded(name, pass);
+            if (result.isSucces())
+            {
+                main.loginSucceeded(name, pass);
+            }
+            else
+            {
+                loginWarningText.setText(result.getMessage());
+            }
         }
         else
         {
-            loginWarningText.setText(result.getMessage());
-        }*/
+            loginWarningText.setText("Couldn't make request to server");
+        }
     }
 
     @FXML
