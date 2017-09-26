@@ -10,5 +10,6 @@
     <orderEntry type="module" module-name="Dto" />
     <orderEntry type="library" name="javax.ws.rs:javax.ws.rs-api:2.1" level="project" />
     <orderEntry type="library" name="org.glassfish.jersey.core:jersey-client:2.20" level="project" />
+    <orderEntry type="library" name="org.glassfish.jersey.media:jersey-media-json-jackson:2.26" level="project" />
   </component>
 </module>
