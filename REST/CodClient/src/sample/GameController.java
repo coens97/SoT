@@ -13,9 +13,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import sun.rmi.runtime.Log;
 
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -24,6 +27,7 @@ import java.util.Observable;
 public class GameController {
     private String username;
     private String password;
+    private Form login;
 
     @FXML private Label labelName;
     @FXML private Label labelRollResult;
@@ -36,6 +40,10 @@ public class GameController {
         // Set values
         username = user;
         password = pass;
+        login = new Form();
+        login.param("name", username);
+        login.param("password", password);
+
         labelName.setText(user);
         // Configure table
         userColumn.setCellValueFactory(x -> new SimpleStringProperty(x.getValue().getName()));
@@ -46,10 +54,19 @@ public class GameController {
 
     @FXML
     private void rollDiceClicked(ActionEvent event) {
-        /*CodSoap server = new MyCodSoapService().getMyCodSoapPort();
-        boolean won = server.rollDice(username, password);
-        labelRollResult.setText(won ? "Won the dice roll :)" : "Lost the dice roll");
-        showScoreBoard();*/
+        WebTarget target = TargetSingle.getInstance().getTarget()
+                .path("game").path("roll");
+        Invocation.Builder requestBuilder = target.request().accept(MediaType.APPLICATION_JSON);
+        Response response = requestBuilder.put(Entity.entity(login, MediaType.APPLICATION_FORM_URLENCODED));
+        StandardResult result = response.readEntity(StandardResult.class);
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            labelRollResult.setText(result.isSucces() ? "Won the dice roll :)" : "Lost the dice roll");
+            showScoreBoard();
+        }
+        else
+        {
+            labelRollResult.setText("Couldn't connect to server");
+        }
     }
 
     @FXML

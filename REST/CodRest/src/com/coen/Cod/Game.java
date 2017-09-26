@@ -23,7 +23,7 @@ public class Game {
             if (random)
             {
                 user.increaseLoss();
-                return new StandardResult(true, "");
+                return new StandardResult(false, "");
             }
             else
             {
