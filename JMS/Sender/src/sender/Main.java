@@ -1,12 +1,10 @@
-package sample;
+package sender;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class Main extends Application {
 
@@ -18,7 +16,7 @@ public class Main extends Application {
         // Show window
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = fxmlLoader.load();
-        primaryStage.setTitle("JMS Receiver");
+        primaryStage.setTitle("JMS Sender");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
         // Make the controller know about main
