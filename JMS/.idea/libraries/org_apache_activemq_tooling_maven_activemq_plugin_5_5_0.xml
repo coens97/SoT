@@ -1,0 +1,56 @@
+<component name="libraryTable">
+  <library name="org.apache.activemq.tooling:maven-activemq-plugin:5.5.0" type="repository">
+    <properties maven-id="org.apache.activemq.tooling:maven-activemq-plugin:5.5.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/activemq/tooling/maven-activemq-plugin/5.5.0/maven-activemq-plugin-5.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-plugin-api/2.0/maven-plugin-api-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-project/2.0/maven-project-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-profile/2.0/maven-profile-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-model/2.0/maven-model-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-artifact-manager/2.0/maven-artifact-manager-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-repository-metadata/2.0/maven-repository-metadata-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-5/wagon-provider-api-1.0-alpha-5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-artifact/2.0/maven-artifact-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-container-default/1.0-alpha-8/plexus-container-default-1.0-alpha-8.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/activemq/activemq-core/5.5.0/activemq-core-5.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.5.11/slf4j-api-1.5.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/activemq/kahadb/5.5.0/kahadb-5.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/activemq/protobuf/activemq-protobuf/1.1/activemq-protobuf-1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/osgi/org.osgi.core/4.1.0/org.osgi.core-4.1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.0.3.RELEASE/spring-context-3.0.3.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.0.3.RELEASE/spring-aop-3.0.3.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.0.3.RELEASE/spring-beans-3.0.3.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.0.3.RELEASE/spring-core-3.0.3.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.0.3.RELEASE/spring-expression-3.0.3.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-asm/3.0.3.RELEASE/spring-asm-3.0.3.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-net/commons-net/2.0/commons-net-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jasypt/jasypt/1.7/jasypt-1.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/activemq/activemq-console/5.5.0/activemq-console-5.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/xbean/xbean-spring/3.7/xbean-spring-3.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/oro/oro/2.0.8/oro-2.0.8.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.4/commons-lang-2.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/josql/josql/1.5/josql-1.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/josql/gentlyweb-utils/1.5/gentlyweb-utils-1.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-daemon/commons-daemon/1.0.3/commons-daemon-1.0.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/activemq/activeio-core/3.1.2/activeio-core-3.1.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1/commons-logging-1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.12/log4j-1.2.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/logkit/logkit/1.0.1/logkit-1.0.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/derby/derby/10.1.3.1/derby-10.1.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/derby/derbynet/10.1.3.1/derbynet-10.1.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1.1/geronimo-jms_1.1_spec-1.1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-j2ee-management_1.1_spec/1.0.1/geronimo-j2ee-management_1.1_spec-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
