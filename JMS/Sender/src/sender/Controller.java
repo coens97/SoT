@@ -24,7 +24,12 @@ public class Controller {
 
     @FXML
     private void okClicked(ActionEvent event) {
-
+        try {
+            Message msg = session.createTextMessage(textInput.getText());            // send the message
+            producer.send(msg);
+        } catch (JMSException e) {
+            e.printStackTrace();
+        }
     }
 
     public Controller() {
