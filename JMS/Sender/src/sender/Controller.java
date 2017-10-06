@@ -44,7 +44,7 @@ public class Controller {
             Context jndiContext = new InitialContext(props);
             ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("ConnectionFactory");
             connection = connectionFactory.createConnection();
-            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);    // connect to the sender destination
+            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);    // connect to the receiver destination
             sendDestination = (Destination) jndiContext.lookup("myFirstDestination");
             producer = session.createProducer(sendDestination);
             String body = "Hello, this is my first message!"; //or serialize an object!
