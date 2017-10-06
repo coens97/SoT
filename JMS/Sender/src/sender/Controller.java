@@ -27,6 +27,7 @@ public class Controller {
         try {
             Message msg = session.createTextMessage(textInput.getText());            // send the message
             producer.send(msg);
+            textInput.setText("");
         } catch (JMSException e) {
             e.printStackTrace();
         }
