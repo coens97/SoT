@@ -19,12 +19,14 @@ public class Controller implements MessageListener {
     /* Login */
     @FXML private TextField textInput;
     @FXML private ListView listView;
-    private ObservableList<String> listData;
+    private ObservableList<TableRow> listData;
 
     private Connection connection; // to connect to the ActiveMQ
     private Session session; // session for creating messages, producers and
     private Destination receiveDestination; // reference to a queue/topic destination
     private MessageConsumer consumer; // for sending messages
+    private Destination sendDestination; // reference to a queue/topic destination
+    private MessageProducer producer; // for sending messages
 
     public Controller(){
         try {
@@ -33,6 +35,7 @@ public class Controller implements MessageListener {
             props.setProperty(Context.PROVIDER_URL, "tcp://localhost:61616");          // connect to the Destination called “myFirstChannel”
             // queue or topic: “queue.myFirstDestination” or “topic.myFirstDestination”
             props.put(("queue.questionsDestination"), "questionsDestination");
+            props.put(("queue.questionsAnswers"), "questionsAnswers");
             Context jndiContext = new InitialContext(props);
             ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("ConnectionFactory");
             connection = connectionFactory.createConnection();  session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);   // connect to the receiver destination
@@ -40,14 +43,15 @@ public class Controller implements MessageListener {
             consumer = session.createConsumer(receiveDestination);
             connection.start(); // this is needed to start receiving messages
             consumer.setMessageListener(this);
+
+            sendDestination = (Destination) jndiContext.lookup("questionsAnswers");
+            producer = session.createProducer(sendDestination);
             }
             catch (NamingException | JMSException e) {
                 e.printStackTrace();
         }
         // Set ui
         listData = FXCollections.observableArrayList();
-
-
     }
 
     @FXML
@@ -66,7 +70,8 @@ public class Controller implements MessageListener {
     public void onMessage(Message message) {
         Platform.runLater(() -> {
             try {
-                listData.add(((TextMessage) message).getText());
+                String text =((TextMessage) message).getText();
+                listData.add(new TableRow(text, message.getJMSCorrelationID()));
             } catch (JMSException e) {
                 e.printStackTrace();
             }
