@@ -56,7 +56,15 @@ public class Controller implements MessageListener {
 
     @FXML
     private void okClicked(ActionEvent event) {
-
+        TableRow row = (TableRow) listView.getSelectionModel().getSelectedItem();
+        try {
+            Message msg = session.createTextMessage(textInput.getText());            // send the message
+            msg.setJMSCorrelationID(row.getId());
+            producer.send(msg);
+            textInput.setText("");
+        } catch (JMSException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -71,7 +79,7 @@ public class Controller implements MessageListener {
         Platform.runLater(() -> {
             try {
                 String text =((TextMessage) message).getText();
-                listData.add(new TableRow(text, message.getJMSCorrelationID()));
+                listData.add(new TableRow(text, message.getJMSMessageID()));
             } catch (JMSException e) {
                 e.printStackTrace();
             }
