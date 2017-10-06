@@ -1,5 +1,6 @@
 package receiver;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,19 +32,21 @@ public class Controller implements MessageListener {
             props.setProperty(Context.INITIAL_CONTEXT_FACTORY,  "org.apache.activemq.jndi.ActiveMQInitialContextFactory");
             props.setProperty(Context.PROVIDER_URL, "tcp://localhost:61616");          // connect to the Destination called “myFirstChannel”
             // queue or topic: “queue.myFirstDestination” or “topic.myFirstDestination”
-            props.put(("queue.myFirstDestination"), " myFirstDestination");
+            props.put(("queue.questionsDestination"), "questionsDestination");
             Context jndiContext = new InitialContext(props);
             ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("ConnectionFactory");
             connection = connectionFactory.createConnection();  session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);   // connect to the receiver destination
-            receiveDestination = (Destination) jndiContext.lookup("myFirstDestination");
+            receiveDestination = (Destination) jndiContext.lookup("questionsDestination");
             consumer = session.createConsumer(receiveDestination);
             connection.start(); // this is needed to start receiving messages
+            consumer.setMessageListener(this);
             }
             catch (NamingException | JMSException e) {
                 e.printStackTrace();
         }
         // Set ui
         listData = FXCollections.observableArrayList();
+
 
     }
 
@@ -61,6 +64,12 @@ public class Controller implements MessageListener {
 
     @Override
     public void onMessage(Message message) {
-        listData.add(message.toString());
+        Platform.runLater(() -> {
+            try {
+                listData.add(((TextMessage) message).getText());
+            } catch (JMSException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

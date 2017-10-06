@@ -40,15 +40,13 @@ public class Controller {
 
             // connect to the Destination called “myFirstChannel”
             // queue or topic: “queue.myFirstDestination” or “topic.myFirstDestination”
-            props.put(("queue.myFirstDestination"), "myFirstDestination");
+            props.put(("queue.questionsDestination"), "questionsDestination");
             Context jndiContext = new InitialContext(props);
             ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("ConnectionFactory");
             connection = connectionFactory.createConnection();
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);    // connect to the receiver destination
-            sendDestination = (Destination) jndiContext.lookup("myFirstDestination");
+            sendDestination = (Destination) jndiContext.lookup("questionsDestination");
             producer = session.createProducer(sendDestination);
-            String body = "Hello, this is my first message!"; //or serialize an object!
-            // create a text message          Message msg = session.createTextMessage(body);            // send the message             producer.send(msg);
         } catch (NamingException | JMSException e) {
             e.printStackTrace();
         }
