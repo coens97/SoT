@@ -62,6 +62,7 @@ public class Controller implements MessageListener {
             msg.setJMSCorrelationID(row.getId());
             producer.send(msg);
             textInput.setText("");
+            listData.remove(row);
         } catch (JMSException e) {
             e.printStackTrace();
         }
