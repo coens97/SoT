@@ -3,6 +3,8 @@ package receiver;
 import com.google.gson.Gson;
 import dto.IssueDto;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,6 +72,9 @@ public class Controller implements MessageListener {
             producer.send(msg);
             textInput.setText("");
             listData.remove(row);
+            gameLabel.setText("");
+            issueLabel.setText("");
+            userLabel.setText("");
         } catch (JMSException e) {
             e.printStackTrace();
         }
@@ -80,6 +85,19 @@ public class Controller implements MessageListener {
     public void setMain(Main main) {
         this.main = main;
         listView.setItems(listData);
+
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TableRow>() {
+
+            @Override
+            public void changed(ObservableValue<? extends TableRow> observable, TableRow oldValue, TableRow newValue) {
+                // Your action here
+                //System.out.println("Selected item: " + newValue);
+                IssueDto issue = newValue.getIssue();
+                gameLabel.setText(issue.getGame());
+                issueLabel.setText(issue.getIssue());
+                userLabel.setText(issue.getUsername());
+            }
+        });
     }
 
     @Override
