@@ -47,6 +47,7 @@ public class Controller implements MessageListener {
                     actionCombo.getSelectionModel().getSelectedItem().toString(), user);
             String json = new Gson().toJson(dto);
             Message msg = session.createTextMessage(json);            // send the message
+            msg.setJMSReplyTo(receiveDestination);
             producer.send(msg);
             textInput.setText("");
 
@@ -68,14 +69,15 @@ public class Controller implements MessageListener {
             // connect to the Destination called “myFirstChannel”
             // queue or topic: “queue.myFirstDestination” or “topic.myFirstDestination”
             props.put(("queue.questionsDestination"), "questionsDestination");
-            props.put(("queue.questionsAnswers"), "questionsAnswers");
+            //props.put(("queue.questionsAnswers"), "questionsAnswers");
             Context jndiContext = new InitialContext(props);
             ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("ConnectionFactory");
             connection = connectionFactory.createConnection();
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);    // connect to the receiver destination
             sendDestination = (Destination) jndiContext.lookup("questionsDestination");
             producer = session.createProducer(sendDestination);
-            receiveDestination = (Destination) jndiContext.lookup("questionsAnswers");
+            //receiveDestination = (Destination) jndiContext.lookup("questionsAnswers");
+            receiveDestination = session.createQueue("questionAnswers" + java.util.UUID.randomUUID());
             consumer = session.createConsumer(receiveDestination);
             connection.start(); // this is needed to start receiving messages
             consumer.setMessageListener(this);

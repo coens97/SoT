@@ -33,7 +33,7 @@ public class Controller implements MessageListener {
     private Session session; // session for creating messages, producers and
     private Destination receiveDestination; // reference to a queue/topic destination
     private MessageConsumer consumer; // for sending messages
-    private Destination sendDestination; // reference to a queue/topic destination
+    //private Destination sendDestination; // reference to a queue/topic destination
     private MessageProducer producer; // for sending messages
 
     public Controller(){
@@ -43,7 +43,7 @@ public class Controller implements MessageListener {
             props.setProperty(Context.PROVIDER_URL, "tcp://localhost:61616");          // connect to the Destination called “myFirstChannel”
             // queue or topic: “queue.myFirstDestination” or “topic.myFirstDestination”
             props.put(("queue.questionsDestination"), "questionsDestination");
-            props.put(("queue.questionsAnswers"), "questionsAnswers");
+            //props.put(("queue.questionsAnswers"), "questionsAnswers");
             Context jndiContext = new InitialContext(props);
             ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("ConnectionFactory");
 
@@ -53,8 +53,8 @@ public class Controller implements MessageListener {
             connection.start(); // this is needed to start receiving messages
             consumer.setMessageListener(this);
 
-            sendDestination = (Destination) jndiContext.lookup("questionsAnswers");
-            producer = session.createProducer(sendDestination);
+            //sendDestination = (Destination) jndiContext.lookup("questionsAnswers");
+            producer = session.createProducer(null);
             }
             catch (NamingException | JMSException e) {
                 e.printStackTrace();
@@ -69,7 +69,7 @@ public class Controller implements MessageListener {
         try {
             Message msg = session.createTextMessage(textInput.getText());            // send the message
             msg.setJMSCorrelationID(row.getId());
-            producer.send(msg);
+            producer.send(row.getReply(), msg);
             textInput.setText("");
             listData.remove(row);
             gameLabel.setText("");
@@ -92,10 +92,12 @@ public class Controller implements MessageListener {
             public void changed(ObservableValue<? extends TableRow> observable, TableRow oldValue, TableRow newValue) {
                 // Your action here
                 //System.out.println("Selected item: " + newValue);
-                IssueDto issue = newValue.getIssue();
-                gameLabel.setText(issue.getGame());
-                issueLabel.setText(issue.getIssue());
-                userLabel.setText(issue.getUsername());
+                if (newValue != null) {
+                    IssueDto issue = newValue.getIssue();
+                    gameLabel.setText(issue.getGame());
+                    issueLabel.setText(issue.getIssue());
+                    userLabel.setText(issue.getUsername());
+                }
             }
         });
     }
@@ -106,7 +108,7 @@ public class Controller implements MessageListener {
             try {
                 String text =((TextMessage) message).getText();
                 IssueDto dto = new Gson().fromJson(text, IssueDto.class);
-                listData.add(new TableRow(dto, message.getJMSMessageID()));
+                listData.add(new TableRow(dto, message.getJMSMessageID(), message.getJMSReplyTo()));
             } catch (JMSException e) {
                 e.printStackTrace();
             }
