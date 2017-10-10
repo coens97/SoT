@@ -3,6 +3,13 @@ package dto;
 public class IssueDto {
     private String game;
     private String issue;
+
+    public IssueDto(String game, String issue, String username) {
+        this.game = game;
+        this.issue = issue;
+        this.username = username;
+    }
+
     private String username;
 
     public IssueDto() {

@@ -1,5 +1,7 @@
 package sender;
 
+import com.google.gson.Gson;
+import dto.IssueDto;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,13 +42,16 @@ public class Controller implements MessageListener {
     @FXML
     private void okClicked(ActionEvent event) {
         try {
-            String input = textInput.getText();
-            Message msg = session.createTextMessage(input);            // send the message
+            String user = textInput.getText();
+            IssueDto dto = new IssueDto(gameCombo.getSelectionModel().getSelectedItem().toString(),
+                    actionCombo.getSelectionModel().getSelectedItem().toString(), user);
+            String json = new Gson().toJson(dto);
+            Message msg = session.createTextMessage(json);            // send the message
             producer.send(msg);
             textInput.setText("");
 
             //System.out.println(msg.getJMSMessageID());
-            TableRow newRow = new TableRow(input);
+            TableRow newRow = new TableRow(dto.getGame() + " " + dto.getIssue() + " " + dto.getUsername());
             waitingMessages.put(msg.getJMSMessageID(), newRow);
             listData.add(newRow);
         } catch (JMSException e) {
