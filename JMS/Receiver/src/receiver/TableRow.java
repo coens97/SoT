@@ -1,21 +1,22 @@
 package receiver;
 
+import dto.IssueDto;
+
 public class TableRow {
-    private String text;
+    private IssueDto issue;
     private String id;
 
-    public TableRow(String text, String id) {
-        this.text = text;
+    public TableRow(IssueDto issue, String id) {
+        this.issue = issue;
         this.id = id;
     }
 
-    public String getText() {
-
-        return text;
+    public IssueDto getIssue() {
+        return issue;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setIssue(IssueDto issue) {
+        this.issue = issue;
     }
 
     public String getId() {
@@ -29,6 +30,6 @@ public class TableRow {
     @Override
     public String toString()
     {
-        return text;
+        return issue.toString();
     }
 }

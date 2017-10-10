@@ -1,5 +1,7 @@
 package receiver;
 
+import com.google.gson.Gson;
+import dto.IssueDto;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -85,7 +87,8 @@ public class Controller implements MessageListener {
         Platform.runLater(() -> {
             try {
                 String text =((TextMessage) message).getText();
-                listData.add(new TableRow(text, message.getJMSMessageID()));
+                IssueDto dto = new Gson().fromJson(text, IssueDto.class);
+                listData.add(new TableRow(dto, message.getJMSMessageID()));
             } catch (JMSException e) {
                 e.printStackTrace();
             }
