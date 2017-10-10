@@ -67,6 +67,8 @@ public class Controller implements MessageListener {
             producer = session.createProducer(sendDestination);
             receiveDestination = (Destination) jndiContext.lookup("questionsAnswers");
             consumer = session.createConsumer(receiveDestination);
+            connection.start(); // this is needed to start receiving messages
+            consumer.setMessageListener(this);
         } catch (NamingException | JMSException e) {
             e.printStackTrace();
         }
@@ -94,6 +96,8 @@ public class Controller implements MessageListener {
                 {
                     row.setResponse(((TextMessage) message).getText());
                     waitingMessages.remove(correlationId);
+                    //listData.add(row);
+                    listView.refresh();
                 }
             } catch (JMSException e) {
                 e.printStackTrace();

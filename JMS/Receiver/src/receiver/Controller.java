@@ -38,6 +38,7 @@ public class Controller implements MessageListener {
             props.put(("queue.questionsAnswers"), "questionsAnswers");
             Context jndiContext = new InitialContext(props);
             ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("ConnectionFactory");
+
             connection = connectionFactory.createConnection();  session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);   // connect to the receiver destination
             receiveDestination = (Destination) jndiContext.lookup("questionsDestination");
             consumer = session.createConsumer(receiveDestination);
