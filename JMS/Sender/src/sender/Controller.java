@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
@@ -28,9 +29,13 @@ public class Controller implements MessageListener {
     private MessageConsumer consumer; // for sending messages
     private Dictionary<String, TableRow> waitingMessages;
     private ObservableList<TableRow> listData;
+    private ObservableList<String> gamesList;
+    private ObservableList<String> actionList;
     /* Login */
     @FXML private TextField textInput;
     @FXML private ListView listView;
+    @FXML private ComboBox gameCombo;
+    @FXML private ComboBox actionCombo;
 
     @FXML
     private void okClicked(ActionEvent event) {
@@ -73,12 +78,18 @@ public class Controller implements MessageListener {
             e.printStackTrace();
         }
         listData = FXCollections.observableArrayList();
+        gamesList = FXCollections.observableArrayList();
+        actionList = FXCollections.observableArrayList();
+        gamesList.addAll(new String[] { "Call of Duty", "Cuphead", "Forza"});
+        actionList.addAll(new String[] { "Lost password", "Change email", "Appeal ban"});
         waitingMessages = new Hashtable<String,TableRow>();
     }
 
     public void setMain(Main main){
         this.main = main;
         listView.setItems(listData);
+        gameCombo.setItems(gamesList);
+        actionCombo.setItems(actionList);
     }
 
     @Override

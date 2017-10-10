@@ -16,7 +16,7 @@ public class Main extends Application {
         // Show window
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = fxmlLoader.load();
-        primaryStage.setTitle("JMS Receiver");
+        primaryStage.setTitle("Service desk");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
         // Make the controller know about main
