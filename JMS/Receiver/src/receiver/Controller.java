@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -19,6 +20,9 @@ public class Controller implements MessageListener {
     /* Login */
     @FXML private TextField textInput;
     @FXML private ListView listView;
+    @FXML private Label gameLabel;
+    @FXML private Label issueLabel;
+    @FXML private Label userLabel;
     private ObservableList<TableRow> listData;
 
     private Connection connection; // to connect to the ActiveMQ
