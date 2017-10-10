@@ -2,15 +2,14 @@ package sender;
 
 public class TableRow {
     private String text;
-    private int id;
+    private String response;
 
-    public TableRow(String text, int id) {
+
+    public TableRow(String text) {
         this.text = text;
-        this.id = id;
     }
 
     public String getText() {
-
         return text;
     }
 
@@ -18,17 +17,17 @@ public class TableRow {
         this.text = text;
     }
 
-    public int getId() {
-        return id;
+    public String getResponse() {
+        return response;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setResponse(String response) {
+        this.response = response;
     }
 
     @Override
     public String toString()
     {
-        return text;
+        return text  + " : "  + (response == null ? "...": response);
     }
 }
