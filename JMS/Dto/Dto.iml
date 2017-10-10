@@ -7,8 +7,5 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="org.apache.activemq.tooling:maven-activemq-plugin:5.5.0" level="project" />
-    <orderEntry type="library" name="Simple Logging Facade for Java:1.5.11" level="project" />
-    <orderEntry type="module" module-name="Dto" />
   </component>
 </module>
